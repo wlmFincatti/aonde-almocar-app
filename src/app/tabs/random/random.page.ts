@@ -19,15 +19,14 @@ export class RandomPage implements OnInit {
   constructor(private toastCtrl: ToastController, private restaurantService: RestaurantService) { }
 
   ngOnInit() {
+    this.restaurantService.getRestaurants()
+    .pipe(
+      take(1)
+    )
+    .subscribe(value => this.rest = value);
   }
 
   randomPlace() {
-    this.restaurantService.getRestaurants()
-      .pipe(
-        take(1)
-      )
-      .subscribe(value => this.rest = value);
-
     const randomNumber = Math.floor(Math.random() * this.rest.length);
 
     this.presentToast(this.rest[randomNumber].name);

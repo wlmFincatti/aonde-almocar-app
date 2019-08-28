@@ -6,5 +6,9 @@ branches:
     - master
 before_script:
   - npm install -g firebase-tools
+  - npm install -g ionic
+  - npm install -g @angular/cli
+script:
+  -ionic build --prod  
 after_success:
-  - firebase deploy --token=${FIREBASE_TOKEN}
+  - firebase deploy --token=1/VbnYt4dvPpCe-g4W-Op_KcG5ZEsrkBZt3VW2uLvkK_c
