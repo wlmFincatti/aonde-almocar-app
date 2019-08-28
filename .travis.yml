@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "12.0"
+  - "12.8.0"
 branches:
   only:
     - master
@@ -11,4 +11,4 @@ before_script:
 script:
   -ionic build --prod  
 after_success:
-  - firebase deploy --token=1/VbnYt4dvPpCe-g4W-Op_KcG5ZEsrkBZt3VW2uLvkK_c
+  - firebase deploy --token=${FIREBASE_TOKEN}
