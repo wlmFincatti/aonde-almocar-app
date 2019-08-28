@@ -1,0 +1,23 @@
+.welcome-card img {
+	max-height: 35vh;
+	overflow: hidden;
+}
+
+.btn {
+	position: fixed;
+	top: 20%;
+	margin-left: 55%;
+}
+
+#loading {
+  margin-top: 25%;
+  margin-left: 7%;
+	width: 100%;
+	height: 100%;
+	background-image: url('../../../assets/images/loader.gif');
+	background-repeat: no-repeat;
+}
+
+.header-search{
+  position: fixed;
+}

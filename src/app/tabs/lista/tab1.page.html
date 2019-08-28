@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>
+      Lista Restaurante
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="restaurants | async as restaurantes; else elseTemplate">
+    <ion-searchbar color="medium" [(ngModel)]="searchText"></ion-searchbar>
+    <div *ngFor="let restaurant of restaurantes | search : searchText">
+      <app-restaurant [restaurant]="restaurant"></app-restaurant>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div id="loading"></div>
+  </ng-template>
+</ion-content>
