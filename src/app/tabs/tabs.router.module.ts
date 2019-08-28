@@ -28,6 +28,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'random',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../tabs/random/random.module').then(m => m.RandomPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/restaurantes/lista',
         pathMatch: 'full'
@@ -45,4 +55,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }
