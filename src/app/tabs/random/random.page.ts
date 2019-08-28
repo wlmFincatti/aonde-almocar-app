@@ -14,15 +14,9 @@ import { debounceTime, debounce, take } from 'rxjs/operators';
 })
 export class RandomPage implements OnInit {
 
-  restaurants: Observable<Restaurant[]>;
   rest: any[];
 
-  constructor(private toastCtrl: ToastController, private restaurantService: RestaurantService) {
-    this.restaurants = this.restaurantService.getRestaurants()
-      .pipe(
-        debounceTime(1000),
-      );
-  }
+  constructor(private toastCtrl: ToastController, private restaurantService: RestaurantService) { }
 
   ngOnInit() {
   }
@@ -30,7 +24,6 @@ export class RandomPage implements OnInit {
   randomPlace() {
     this.restaurantService.getRestaurants()
       .pipe(
-        debounceTime(100),
         take(1)
       )
       .subscribe(value => this.rest = value);
@@ -38,14 +31,14 @@ export class RandomPage implements OnInit {
     const randomNumber = Math.floor(Math.random() * this.rest.length);
 
     this.presentToast(this.rest[randomNumber].name);
-    console.log(this.rest[randomNumber].name)
+    console.log(this.rest[randomNumber].name);
   }
 
   async presentToast(restaurantChoiced) {
     const toast = await this.toastCtrl.create({
       message: `Restaurante <b>${restaurantChoiced}</b>`,
       duration: 3000,
-      position: "top"
+      position: 'top'
     });
 
     toast.present();

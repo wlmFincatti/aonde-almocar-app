@@ -1,1 +1,8 @@
-
+ion-tab-bar {
+	--background: rgb(216, 205, 205);
+}
+ion-tab-button {
+	--color: black;
+	--color-selected: rgb(54, 18, 112);
+	--background-focused: blue;
+}
