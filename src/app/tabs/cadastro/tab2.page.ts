@@ -28,6 +28,7 @@ export class Tab2Page {
   public registerRestaurant() {
     console.log(this.formRegister.value);
     if (this.restaurantService.registerRestaurant(this.formRegister.value)) {
+      this.route.navigate(['/']);
       this.presentToast();
     }
 
@@ -36,13 +37,19 @@ export class Tab2Page {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Your settings have been saved.',
-      duration: 2000,
-      position: 'middle'
+      message: 'Restaurante cadastrado com sucesso!',
+      duration: 1500,
+      position: 'middle',
+      color: 'success',
+      buttons: [
+        {
+          side: 'start',
+          icon: 'checkmark-circle-outline',
+          text: '',
+          handler: () => toast.dismiss
+        }
+      ]
     });
-
-    toast.onDidDismiss().then(() => this.route.navigate(['/']));
-
     toast.present();
   }
 

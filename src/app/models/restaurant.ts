@@ -1,4 +1,4 @@
 export interface Restaurant {
-    $key: string;
+    key: string;
     name: string;
 }
