@@ -15,12 +15,13 @@ branches:
 install:
   - npm install -g firebase-tools
   - npm install -g @angular/cli
-  - npm install -g ionic cordova
+  - npm install -g ionic cordova@5.0.0
+  - npm install -g ionic@5.0.0
 
 script:
   - ng add @angular/pwa
-  - ionic build --service-worker
-  - ionic build
+  - ionic build --prod --service-worker
+  - ionic build --prod
   
 after_success:
   - firebase deploy --token=${FIREBASE_TOKEN}
