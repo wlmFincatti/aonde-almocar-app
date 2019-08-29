@@ -14,19 +14,8 @@
 
 <ion-content>
   <ng-container *ngIf="restaurants | async as restaurantes; else elseTemplate">
-    <!-- <app-restaurant *ngFor="let restaurant of restaurantes | search : searchText" [restaurant]="restaurant">
-    </app-restaurant> -->
-    <ion-item-sliding *ngFor="let restaurant of restaurantes | search : searchText">
-      <ion-item>
-        <ion-label>{{restaurant.name}}</ion-label>
-        <ion-avatar slot="start">
-          <img src="../../../../assets/images/restaurant.png">
-        </ion-avatar>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option color="danger" (click)="removeRestaurant(restaurant.key)">remover</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
+    <app-restaurant *ngFor="let restaurant of restaurantes | search : searchText" [restaurant]="restaurant">
+    </app-restaurant>
   </ng-container>
   <ng-template #elseTemplate>
     <div id="loading"></div>

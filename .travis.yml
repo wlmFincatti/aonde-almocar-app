@@ -20,8 +20,7 @@ install:
 
 script:
   - ng add @angular/pwa
-  - ionic build --prod --service-worker
-  - ionic build --prod
+  - ionic build --service-worker
   
 after_success:
   - firebase deploy --token=${FIREBASE_TOKEN}
