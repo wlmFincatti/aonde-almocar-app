@@ -18,8 +18,6 @@ install:
   - npm install -g ionic cordova
 
 script:
-  - ng add @angular/pwa
-  - ionic build --service-worker
   - ionic build
   
 after_success:
