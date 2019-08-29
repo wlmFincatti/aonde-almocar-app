@@ -8,7 +8,7 @@
 
 .button-position {
     position: flex;
-    margin: 28px 100px;
+    margin: 28px 130px;
 
     .random-button  {
         height: 160px;
@@ -20,6 +20,5 @@
 }
 
 ion-header ion-toolbar {
-	height: 60px;
-	--background: rgb(216, 205, 205);
+	padding-top: 10px;
 }

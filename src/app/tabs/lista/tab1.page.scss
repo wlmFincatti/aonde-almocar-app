@@ -23,11 +23,15 @@
 }
 
 ion-header ion-toolbar {
-	height: 60px;
-	--background: rgb(216, 205, 205);
+	padding-top: 10px;
 }
 
 ion-searchbar {
-	--background: rgb(209, 202, 202);
-	--clear-button-color: red;
+	margin-bottom: 10px;
 }
+
+ion-item {
+	margin-right: 10px;
+}
+
+

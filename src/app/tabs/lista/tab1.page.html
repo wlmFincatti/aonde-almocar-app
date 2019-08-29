@@ -1,13 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title text-center>
-      Lista Restaurante
+      Restaurantes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-toolbar>
-  <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
+  <ion-item class="line">
+    <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
+  </ion-item>
 </ion-toolbar>
 
 <ion-content>
