@@ -6,11 +6,6 @@ branches:
     - master
 before_script:
   - npm install -g firebase-tools
-  - npm install -g ionic
-  - npm install -g ionic cordova
-script:
-  -ng add @angular/pwa
-  -ionic build --prod --service-worker
-  -ionic build --prod
 after_success:
   - firebase deploy --token=${FIREBASE_TOKEN}
+language: node_js
