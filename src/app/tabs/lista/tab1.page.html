@@ -13,11 +13,16 @@
 </ion-toolbar>
 
 <ion-content>
-  <ng-container *ngIf="restaurants | async as restaurantes; else elseTemplate">
+  <ng-container *ngIf="restaurants$ | async as restaurantes; else loading">
     <app-restaurant *ngFor="let restaurant of restaurantes | search : searchText" [restaurant]="restaurant">
     </app-restaurant>
   </ng-container>
-  <ng-template #elseTemplate>
-    <div id="loading"></div>
+  <ng-template #loading>
+      <div *ngIf="error$ | async; else loadingError">
+          <h1>Erro com o servidor</h1>
+        </div>
+        <ng-template #loadingError>
+            <div class="loading"></div>
+        </ng-template>
   </ng-template>
 </ion-content>
