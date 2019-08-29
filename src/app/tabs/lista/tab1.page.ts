@@ -60,4 +60,8 @@ export class Tab1Page {
     await alert.present();
   }
 
+  removeRestaurant(valor) {
+    this.restaurantService.removeRestaurant(valor);
+  }
+  
 }

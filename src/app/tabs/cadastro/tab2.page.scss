@@ -1,3 +1,10 @@
 ion-header ion-toolbar {
 	padding-top: 10px;
 }
+
+ion-button {
+	position: fixed;
+	bottom: 1em;
+	width: 100%;
+	padding: 0px 10px 0px 5px;
+}
