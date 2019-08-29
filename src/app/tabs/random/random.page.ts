@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { Restaurant } from '../../models/restaurant';
 import { RestaurantService } from '../../services/restaurant.service';
 import { Observable, pipe, Subject } from 'rxjs';
-import { debounceTime, debounce, take } from 'rxjs/operators';
+import { debounceTime, debounce, take, takeUntil } from 'rxjs/operators';
 
 
 
@@ -12,18 +12,15 @@ import { debounceTime, debounce, take } from 'rxjs/operators';
   templateUrl: './random.page.html',
   styleUrls: ['./random.page.scss'],
 })
-export class RandomPage implements OnInit {
+export class RandomPage implements OnInit, OnDestroy {
 
   rest: any[];
+  unSub$ = new Subject();
 
   constructor(private toastCtrl: ToastController, private restaurantService: RestaurantService) { }
 
   ngOnInit() {
-    this.restaurantService.getRestaurants()
-    .pipe(
-      take(1)
-    )
-    .subscribe(value => this.rest = value);
+    this.getRestaurants();
   }
 
   randomPlace() {
@@ -41,6 +38,19 @@ export class RandomPage implements OnInit {
     });
 
     toast.present();
+  }
+
+  getRestaurants() {
+    this.restaurantService.getRestaurants()
+      .pipe(
+        takeUntil(this.unSub$)
+      )
+      .subscribe(value => this.rest = value);
+  }
+
+  ngOnDestroy(): void {
+    this.unSub$.next();
+    this.unSub$.complete();
   }
 
 }

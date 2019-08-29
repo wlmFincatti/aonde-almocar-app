@@ -17,7 +17,7 @@ export class RestaurantService {
     private angularFireDatabase: AngularFireDatabase
   ) {
     this.itemsRef = this.angularFireDatabase.list(environment.dataRestaurant);
-    this.items = this.itemsRef.snapshotChanges()
+    this.items = this.itemsRef.snapshotChanges(['child_added', 'child_removed'])
       .pipe(
         map(changes =>
           changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
