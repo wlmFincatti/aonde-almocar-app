@@ -14,9 +14,8 @@
 
 <ion-content>
   <ng-container *ngIf="restaurants | async as restaurantes; else elseTemplate">
-    <div *ngFor="let restaurant of restaurantes | search : searchText">
-      <app-restaurant [restaurant]="restaurant"></app-restaurant>
-    </div>
+    <app-restaurant *ngFor="let restaurant of restaurantes | search : searchText" [restaurant]="restaurant">
+    </app-restaurant>
   </ng-container>
   <ng-template #elseTemplate>
     <div id="loading"></div>
