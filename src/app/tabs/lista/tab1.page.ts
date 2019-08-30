@@ -34,22 +34,6 @@ export class Tab1Page {
       );
   }
 
-  private async presentAlert(restaurantChoiced) {
-    const alert = await this.alertController.create({
-      header: 'Cadastro',
-      message: `Restaurante <b>${restaurantChoiced}</b> foi o escolhido!`,
-      buttons: [
-        {
-          text: 'OK',
-          handler: () => {
-          }
-        }
-      ]
-    });
-
-    await alert.present();
-  }
-
   removeRestaurant(valor) {
     this.restaurantService.removeRestaurant(valor);
   }

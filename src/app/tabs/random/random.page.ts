@@ -30,11 +30,11 @@ export class RandomPage implements OnInit, OnDestroy {
     console.log(this.rest[randomNumber].name);
   }
 
-  async presentToast(restaurantChoiced) {
+  async presentToast(restaurantChoiced: string) {
     const toast = await this.toastCtrl.create({
       message: `Restaurante <b>${restaurantChoiced}</b>`,
       duration: 3000,
-      position: 'top'
+      position: 'top',
     });
 
     toast.present();

@@ -2,8 +2,8 @@ import { RestaurantService } from '../../services/restaurant.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController, ToastController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+import { messages } from '../../models/messages';
 
 @Component({
   selector: 'app-tab2',
@@ -29,18 +29,20 @@ export class Tab2Page {
     console.log(this.formRegister.value);
     if (this.restaurantService.registerRestaurant(this.formRegister.value)) {
       this.route.navigate(['/']);
-      this.presentToast();
+      this.presentToast(messages.success.type, messages.success.message, messages.success.icon);
+    } else {
+      this.presentToast(messages.error.type, messages.error.message, messages.error.icon);
     }
 
     this.formRegister.reset();
   }
 
-  async presentToast() {
+  async presentToast(type: string, msg: string, icon: string) {
     const toast = await this.toastController.create({
-      message: 'Restaurante cadastrado com sucesso!',
+      message: msg,
       duration: 1500,
-      position: 'middle',
-      color: 'success',
+      position: 'top',
+      color: type,
       buttons: [
         {
           side: 'start',

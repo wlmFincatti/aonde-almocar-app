@@ -14,9 +14,8 @@
       Podemos ajudar!
     </ion-label>
   </div>
-
   <div class="button-position">
-    <ion-button (click)="randomPlace()" class="random-button" shape="round"> Buscar
+    <ion-button (click)="randomPlace()" [disabled]="!rest" class="random-button" shape="round"> Buscar
     </ion-button>
   </div>
 </ion-content>

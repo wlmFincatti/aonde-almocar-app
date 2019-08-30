@@ -6,17 +6,13 @@
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content>
+<ion-content class="position">
   <form [formGroup]="formRegister" (ngSubmit)="registerRestaurant()">
-
     <ion-item>
       <ion-label position="floating">Nome</ion-label>
       <ion-input type="text" formControlName="name" required></ion-input>
     </ion-item>
-
-    <ion-button type="submit" expand="full" fill="solid" [disabled]="!formRegister.valid">Cadastrar</ion-button>
-
+    <ion-button class="btn-bottom" type="submit" expand="full" fill="solid" [disabled]="!formRegister.valid">Cadastrar
+    </ion-button>
   </form>
-
 </ion-content>

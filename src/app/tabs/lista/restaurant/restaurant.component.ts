@@ -18,7 +18,6 @@ export class RestaurantComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log(this.restaurant);
   }
 
   removeRestaurant(valor) {
