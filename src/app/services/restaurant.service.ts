@@ -43,7 +43,7 @@ export class RestaurantService {
 
   public removeRestaurant(key: string) {
     this.itemsRef
-      .remove(key).then(teste => console.log(teste))
+      .remove(key).then(data => console.log(data))
       .catch(
         err => console.error(err)
       );

@@ -7,8 +7,10 @@
 }
 
 .button-position {
-    position: flex;
-    margin: 28px 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
     .random-button  {
         height: 160px;

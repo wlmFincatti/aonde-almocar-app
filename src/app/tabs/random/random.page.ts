@@ -14,7 +14,7 @@ import { debounceTime, debounce, take, takeUntil } from 'rxjs/operators';
 })
 export class RandomPage implements OnInit, OnDestroy {
 
-  rest: any[];
+  restaurant: Restaurant[];
   unSub$ = new Subject();
 
   constructor(private toastCtrl: ToastController, private restaurantService: RestaurantService) { }
@@ -24,16 +24,16 @@ export class RandomPage implements OnInit, OnDestroy {
   }
 
   randomPlace() {
-    const randomNumber = Math.floor(Math.random() * this.rest.length);
+    const randomNumber = Math.floor(Math.random() * this.restaurant.length);
 
-    this.presentToast(this.rest[randomNumber].name);
-    console.log(this.rest[randomNumber].name);
+    this.presentToast(this.restaurant[randomNumber].name);
+    console.log(this.restaurant[randomNumber].name);
   }
 
   async presentToast(restaurantChoiced: string) {
     const toast = await this.toastCtrl.create({
       message: `Restaurante <b>${restaurantChoiced}</b>`,
-      duration: 3000,
+      duration: 1500,
       position: 'top',
     });
 
@@ -45,7 +45,7 @@ export class RandomPage implements OnInit, OnDestroy {
       .pipe(
         takeUntil(this.unSub$)
       )
-      .subscribe(value => this.rest = value);
+      .subscribe(value => this.restaurant = value);
   }
 
   ngOnDestroy(): void {
