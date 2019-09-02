@@ -6,7 +6,6 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
   <div class="text-center">
     <ion-label>
@@ -14,8 +13,11 @@
       Podemos ajudar!
     </ion-label>
   </div>
+  <div text-center>
+    <h1>{{restaurantChoiced}}</h1>   
+  </div>
   <div class="button-position">
-    <ion-button (click)="randomPlace()" [disabled]="!restaurant" class="random-button" shape="round"> Buscar
+    <ion-button (click)="randomPlace()" [disabled]="!valid" class="random-button" shape="round"> Buscar
     </ion-button>
   </div>
 </ion-content>

@@ -29,9 +29,9 @@ export class Tab2Page {
     console.log(this.formRegister.value);
     if (this.restaurantService.registerRestaurant(this.formRegister.value)) {
       this.route.navigate(['/']);
-      this.presentToast(messages.success.type, messages.success.message, messages.success.icon);
+      this.presentToast(messages.list.success.type, messages.list.success.message, messages.list.success.icon);
     } else {
-      this.presentToast(messages.error.type, messages.error.message, messages.error.icon);
+      this.presentToast(messages.list.error.type, messages.list.error.message, messages.list.error.icon);
     }
 
     this.formRegister.reset();
