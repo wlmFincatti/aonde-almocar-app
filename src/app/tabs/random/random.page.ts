@@ -18,6 +18,7 @@ export class RandomPage implements OnInit, OnDestroy {
   valid = 0;
   restaurantChoiced: string;
 
+
   constructor(private toastCtrl: ToastController, private restaurantService: RestaurantService) { }
 
   ngOnInit() {

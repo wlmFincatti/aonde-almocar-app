@@ -10,14 +10,18 @@
   <div class="text-center">
     <ion-label>
       Não sabe onde almoçar? <br>
-      Podemos ajudar!
+      Podemos ajudar! <br>
+      <div class="restaurant-choiced">
+        {{ restaurantChoiced }}
+      </div>
     </ion-label>
   </div>
   <div text-center>
     <h1>{{restaurantChoiced}}</h1>   
   </div>
   <div class="button-position">
-    <ion-button (click)="randomPlace()" [disabled]="!valid" class="random-button" shape="round"> Buscar
+    <ion-button (click)="randomPlace()" [disabled]="!restaurant" class="random-button" shape="round">
+      <ion-icon name="search"></ion-icon>
     </ion-button>
   </div>
 </ion-content>
