@@ -3,6 +3,12 @@ node_js:
   - "12.8.0"
   
 addons:
+  sonarcloud:
+    organization: "williamsilva"
+    token:
+      secure: 982c466cdc566f09220d99686b7ab1933d103a33
+      
+addons:
   apt:
     sources:
       - google-chrome
